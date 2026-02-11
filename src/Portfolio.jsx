@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Github, Linkedin, Mail, Phone, MapPin, ExternalLink, Menu, X, Code2, Database, Globe, Server } from 'lucide-react';
+import { Github, Linkedin, Mail, Phone, MapPin, ExternalLink, Menu, X, ArrowRight } from 'lucide-react';
 
 const Portfolio = () => {
   const [activeSection, setActiveSection] = useState('home');
@@ -28,7 +28,6 @@ const Portfolio = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Auto-rotate project images every 2 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndexes(prev => {
@@ -41,16 +40,15 @@ const Portfolio = () => {
         });
         return newIndexes;
       });
-    }, 2000);
+    }, 3000);
 
     return () => clearInterval(interval);
   }, []);
 
-  // Auto-rotate featured images every 3 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentFeaturedIndex(prev => (prev + 1) % featuredImages.length);
-    }, 3000);
+    }, 4000);
 
     return () => clearInterval(interval);
   }, []);
@@ -64,15 +62,15 @@ const Portfolio = () => {
   };
 
   const featuredImages = [
-    "/images/vescueye-1.jpeg",
-        "/images/vescueye-2.jpeg", 
-        "/images/vescueye-3.jpeg",
-    "/images/1.jpeg",
-    "/images/2.jpeg",
-    "/images/3.jpeg",
-    "/images/4.jpeg",
-    "/images/5.jpeg",
-    "/images/6.jpeg"
+    `${process.env.PUBLIC_URL}/images/vescueye-1.jpeg`,
+    `${process.env.PUBLIC_URL}/images/vescueye-2.jpeg`,
+    `${process.env.PUBLIC_URL}/images/vescueye-3.jpeg`,
+    `${process.env.PUBLIC_URL}/images/1.jpeg`,
+    `${process.env.PUBLIC_URL}/images/2.jpeg`,
+    `${process.env.PUBLIC_URL}/images/3.jpeg`,
+    `${process.env.PUBLIC_URL}/images/4.jpeg`,
+    `${process.env.PUBLIC_URL}/images/5.jpeg`,
+    `${process.env.PUBLIC_URL}/images/6.jpeg`
   ];
 
   const projects = [
@@ -84,17 +82,11 @@ const Portfolio = () => {
       category: "IoT & Cloud",
       year: "2024-2025",
       images: [
-        "/images/vescueye-1.jpeg",
-        "/images/vescueye-2.jpeg", 
-        "/images/vescueye-3.jpeg",
-        "/images/vescueye-4.jpeg",
-        "/images/vescueye-5.jpeg",
-        "/images/vescueye-6.jpeg",
-        "/images/vescueye-7.jpeg",
-        "/images/vescueye-8.jpeg",
-        "/images/vescueye-9.jpeg",
-        "/images/vescueye-10.jpeg",
-        "/images/vescueye-11.jpeg"
+        `${process.env.PUBLIC_URL}/images/vescueye-1.jpeg`,
+        `${process.env.PUBLIC_URL}/images/vescueye-2.jpeg`,
+        `${process.env.PUBLIC_URL}/images/vescueye-3.jpeg`,
+        `${process.env.PUBLIC_URL}/images/vescueye-4.jpeg`,
+        `${process.env.PUBLIC_URL}/images/vescueye-5.jpeg`
       ]
     },
     {
@@ -105,12 +97,12 @@ const Portfolio = () => {
       category: "Machine Learning",
       year: "2025-Present",
       images: [
-        "/images/fyp-1.jpeg",
-        "/images/fyp-2.jpeg", 
-        "/images/fyp-3.jpeg",
-        "/images/fyp-5.jpeg",
-        "/images/fyp-4.jpeg",
-        "/images/fyp-6.jpeg",
+        `${process.env.PUBLIC_URL}/images/fyp-1.jpeg`,
+        `${process.env.PUBLIC_URL}/images/fyp-2.jpeg`,
+        `${process.env.PUBLIC_URL}/images/fyp-3.jpeg`,
+        `${process.env.PUBLIC_URL}/images/fyp-5.jpeg`,
+        `${process.env.PUBLIC_URL}/images/fyp-4.jpeg`,
+        `${process.env.PUBLIC_URL}/images/fyp-6.jpeg`,
       ]
     },
     {
@@ -144,7 +136,7 @@ const Portfolio = () => {
   const blogs = [
     {
       title: "What does it take to become a web developer?",
-      excerpt: "Web development, also known as website development, encompasses a variety of tasks and processes involved in creating websites for the internet...",
+      excerpt: "Web development encompasses a variety of tasks and processes involved in creating websites for the internet, from front-end design to back-end architecture.",
       author: "Tharushika",
       date: "10 Oct 2023",
       readTime: "3 Min",
@@ -152,7 +144,7 @@ const Portfolio = () => {
     },
     {
       title: "Building Scalable IoT Applications with AWS",
-      excerpt: "Learn how to leverage AWS IoT Core and Lambda functions to create real-time monitoring systems that can handle thousands of devices...",
+      excerpt: "Learn how to leverage AWS IoT Core and Lambda functions to create real-time monitoring systems that can handle thousands of devices efficiently.",
       author: "Tharushika",
       date: "15 Nov 2024",
       readTime: "5 Min",
@@ -160,7 +152,7 @@ const Portfolio = () => {
     },
     {
       title: "Graph Neural Networks in Bioinformatics",
-      excerpt: "Exploring the application of Graph Neural Networks for metagenomics data analysis and how they outperform traditional clustering methods...",
+      excerpt: "Exploring the application of Graph Neural Networks for metagenomics data analysis and how they outperform traditional clustering methods.",
       author: "Tharushika",
       date: "20 Jan 2025",
       readTime: "7 Min",
@@ -168,17 +160,77 @@ const Portfolio = () => {
     }
   ];
 
+  const skills = [
+    { 
+      category: "Languages", 
+      items: [
+        { name: "JavaScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
+        { name: "Python", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
+        { name: "Java", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" },
+        { name: "C", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" },
+        { name: "C++", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" },
+        { name: "SQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azuresqldatabase/azuresqldatabase-original.svg" }
+      ]
+    },
+    { 
+      category: "Frontend", 
+      items: [
+        { name: "React", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+        { name: "HTML", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
+        { name: "CSS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
+        { name: "Bootstrap", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" },
+        { name: "Tailwind", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" }
+      ]
+    },
+    { 
+      category: "Backend", 
+      items: [
+        { name: "Node.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
+        { name: "Express", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" },
+        { name: "Spring Boot", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" },
+        { name: "Flask", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" }
+      ]
+    },
+    { 
+      category: "Database", 
+      items: [
+        { name: "MySQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
+        { name: "MongoDB", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
+        { name: "PostgreSQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" },
+        { name: "Redis", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg" }
+      ]
+    },
+    { 
+      category: "Cloud & DevOps", 
+      items: [
+        { name: "AWS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" },
+        { name: "Docker", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
+        { name: "Git", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
+        { name: "Linux", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" }
+      ]
+    },
+    { 
+      category: "Tools", 
+      items: [
+        { name: "VS Code", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" },
+        { name: "IntelliJ", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/intellij/intellij-original.svg" },
+        { name: "Postman", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg" },
+        { name: "Figma", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" },
+        { name: "GitHub", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" }
+      ]
+    }
+  ];
+
   return (
     <div style={{
       minHeight: '100vh',
-      background: '#0f1419',
-      color: '#e8e8e8',
-      fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
-      position: 'relative'
+      background: '#1a1a1d',
+      color: '#e0e0e0',
+      fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", sans-serif'
     }}>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
-        
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
         * {
           margin: 0;
           padding: 0;
@@ -187,31 +239,35 @@ const Portfolio = () => {
         }
 
         body {
-          font-family: 'Inter', sans-serif;
+          font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
           overflow-x: hidden;
         }
 
+        .accent-text {
+          color: #e91e63;
+        }
+
         .project-card {
-          background: #1a1f2e;
-          border: 1px solid #252b3b;
+          background: #242428;
+          border: 1px solid rgba(255, 255, 255, 0.1);
           transition: all 0.3s ease;
           cursor: pointer;
+          border-radius: 8px;
         }
 
         .project-card:hover {
-          transform: translateY(-5px);
-          border-color: #06b6d4;
-          box-shadow: 0 10px 30px rgba(6, 182, 212, 0.2);
+          transform: translateY(-4px);
+          box-shadow: 0 8px 16px rgba(233, 30, 99, 0.15);
+          border-color: rgba(233, 30, 99, 0.3);
         }
 
         .project-image-container {
           position: relative;
           width: 100%;
-          height: 200px;
+          height: 240px;
           overflow: hidden;
-          border-radius: 8px;
-          margin-bottom: 1.5rem;
-          border: 1px solid #252b3b;
+          border-radius: 8px 8px 0 0;
+          background: #1a1a1d;
         }
 
         .project-image {
@@ -223,24 +279,26 @@ const Portfolio = () => {
 
         .featured-image-container {
           position: relative;
-          width: 60%;
-          height: 550px;
-          margin: 0 auto; /* This centers the container */
+          width: 100%;
+          max-width: 900px;
+          height: 500px;
+          margin: 0 auto;
           overflow: hidden;
-          border-radius: 12px;
-          border: 2px solid #252b3b;
+          border-radius: 8px;
+          background: #1a1a1d;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
         }
 
         .featured-image {
           width: 100%;
           height: 100%;
-          object-fit: cover; /* Change to 'contain' to show full image without cropping */
+          object-fit: cover;
           transition: opacity 0.5s ease-in-out;
         }
 
         .image-indicators {
           position: absolute;
-          bottom: 10px;
+          bottom: 20px;
           left: 50%;
           transform: translateX(-50%);
           display: flex;
@@ -249,49 +307,53 @@ const Portfolio = () => {
         }
 
         .indicator-dot {
-          width: 8px;
-          height: 8px;
+          width: 6px;
+          height: 6px;
           border-radius: 50%;
           background: rgba(255, 255, 255, 0.4);
-          transition: all 0.3s ease;
-        }
-
-        .indicator-dot.active {
-          background: #06b6d4;
-          width: 24px;
-          border-radius: 4px;
-        }
-
-        .blog-card {
-          background: #1a1f2e;
-          border: 1px solid #252b3b;
           transition: all 0.3s ease;
           cursor: pointer;
         }
 
+        .indicator-dot.active {
+          background: #e91e63;
+          width: 24px;
+          border-radius: 3px;
+        }
+
+        .blog-card {
+          background: #242428;
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          transition: all 0.3s ease;
+          cursor: pointer;
+          border-radius: 8px;
+        }
+
         .blog-card:hover {
-          border-color: #06b6d4;
-          transform: translateY(-3px);
+          transform: translateY(-4px);
+          box-shadow: 0 8px 16px rgba(233, 30, 99, 0.15);
+          border-color: rgba(233, 30, 99, 0.3);
         }
 
         .nav-link {
           position: relative;
-          transition: all 0.3s ease;
+          transition: color 0.2s ease;
+          padding: 0.5rem 0;
         }
 
         .nav-link.active {
-          color: #06b6d4;
+          color: #e91e63;
         }
 
         .nav-link::after {
           content: '';
           position: absolute;
-          bottom: -5px;
+          bottom: 0;
           left: 0;
           width: 0;
           height: 2px;
-          background: #06b6d4;
-          transition: width 0.3s ease;
+          background: #e91e63;
+          transition: width 0.2s ease;
         }
 
         .nav-link:hover::after,
@@ -300,68 +362,117 @@ const Portfolio = () => {
         }
 
         .btn-primary {
-          background: #06b6d4;
-          color: #0f1419;
-          padding: 0.75rem 1.5rem;
+          background: #e91e63;
+          color: #ffffff;
+          padding: 12px 28px;
           border: none;
           border-radius: 6px;
           font-weight: 600;
-          font-size: 0.95rem;
+          font-size: 0.9rem;
           cursor: pointer;
-          transition: all 0.3s ease;
+          transition: all 0.2s ease;
           text-decoration: none;
-          display: inline-block;
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
         }
 
         .btn-primary:hover {
-          background: #0891b2;
+          background: #c2185b;
           transform: translateY(-2px);
         }
 
         .btn-outline {
           background: transparent;
-          color: #06b6d4;
-          padding: 0.75rem 1.5rem;
-          border: 2px solid #06b6d4;
+          color: #e91e63;
+          padding: 12px 28px;
+          border: 2px solid #e91e63;
           border-radius: 6px;
           font-weight: 600;
-          font-size: 0.95rem;
+          font-size: 0.9rem;
           cursor: pointer;
-          transition: all 0.3s ease;
+          transition: all 0.2s ease;
           text-decoration: none;
-          display: inline-block;
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
         }
 
         .btn-outline:hover {
-          background: #06b6d4;
-          color: #0f1419;
-        }
-
-        .skill-badge {
-          width: 70px;
-          height: 70px;
-          border-radius: 12px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 1.8rem;
-          font-weight: 700;
-          transition: all 0.3s ease;
-        }
-
-        .skill-badge:hover {
-          transform: translateY(-3px);
+          background: #e91e63;
+          color: #ffffff;
         }
 
         .profile-image {
-          width: 320px;
-          height: 320px;
-          border-radius: 50%;
+          width: 300px;
+          height: 300px;
+          border-radius: 8px;
           object-fit: cover;
-          border: 4px solid #fff;
+          border: 2px solid rgba(233, 30, 99, 0.3);
         }
 
-        /* Mobile Responsive */
+        .skill-card {
+          background: #242428;
+          padding: 2rem;
+          border-radius: 8px;
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          transition: all 0.3s ease;
+        }
+
+        .skill-card:hover {
+          border-color: rgba(233, 30, 99, 0.3);
+        }
+
+        .skill-icon-item {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 0.6rem;
+          padding: 1rem;
+          background: rgba(233, 30, 99, 0.05);
+          border-radius: 6px;
+          transition: all 0.2s ease;
+          border: 1px solid rgba(233, 30, 99, 0.1);
+        }
+
+        .skill-icon-item:hover {
+          background: rgba(233, 30, 99, 0.1);
+          border-color: rgba(233, 30, 99, 0.3);
+        }
+
+        .skill-icon-img {
+          width: 40px;
+          height: 40px;
+          object-fit: contain;
+        }
+
+        .skill-icon-name {
+          font-size: 0.8rem;
+          color: #b0b0b0;
+          font-weight: 500;
+          text-align: center;
+        }
+
+        .social-icon {
+          width: 44px;
+          height: 44px;
+          border-radius: 6px;
+          background: #242428;
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: #b0b0b0;
+          transition: all 0.2s ease;
+          text-decoration: none;
+        }
+
+        .social-icon:hover {
+          background: #e91e63;
+          color: #ffffff;
+          border-color: #e91e63;
+        }
+
         @media (max-width: 768px) {
           .desktop-nav {
             display: none !important;
@@ -370,13 +481,13 @@ const Portfolio = () => {
             display: block !important;
           }
           .profile-image {
-            max-width: 300px;
+            width: 240px;
+            height: 240px;
             margin: 2rem auto;
             display: block;
           }
           .featured-image-container {
-            width: 90%; /* Adjust mobile width here */
-            height: 300px; /* Adjust mobile height here */
+            height: 350px;
           }
         }
 
@@ -384,6 +495,32 @@ const Portfolio = () => {
           .mobile-menu-btn {
             display: none !important;
           }
+        }
+
+        .section-title {
+          font-size: clamp(2rem, 4vw, 2.8rem);
+          font-weight: 700;
+          margin-bottom: 0.75rem;
+          letter-spacing: -0.02em;
+          color: #ffffff;
+        }
+
+        .section-subtitle {
+          font-size: 1.05rem;
+          color: #888;
+          margin-bottom: 3rem;
+        }
+
+        .info-card {
+          background: #242428;
+          padding: 1.75rem;
+          border-radius: 8px;
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          transition: all 0.3s ease;
+        }
+
+        .info-card:hover {
+          border-color: rgba(233, 30, 99, 0.3);
         }
       `}</style>
 
@@ -394,9 +531,9 @@ const Portfolio = () => {
         left: 0,
         right: 0,
         zIndex: 1000,
-        background: scrolled ? 'rgba(15, 20, 25, 0.95)' : 'transparent',
-        backdropFilter: scrolled ? 'blur(20px)' : 'none',
-        borderBottom: scrolled ? '1px solid #252b3b' : 'none',
+        background: scrolled ? 'rgba(26, 26, 29, 0.95)' : 'rgba(26, 26, 29, 0.8)',
+        backdropFilter: 'blur(10px)',
+        borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
         transition: 'all 0.3s ease',
         padding: '1.25rem 0'
       }}>
@@ -409,18 +546,16 @@ const Portfolio = () => {
           alignItems: 'center'
         }}>
           <div style={{
-            fontSize: '1.2rem',
+            fontSize: '1.35rem',
             fontWeight: '700',
-            fontFamily: '"JetBrains Mono", monospace',
-            color: '#06b6d4'
+            color: '#ffffff'
           }}>
-            &lt;/&gt; Tharushika
+            Tharushika
           </div>
           
-          {/* Desktop Nav */}
           <div style={{ 
             display: 'flex', 
-            gap: '2.5rem'
+            gap: '2rem'
           }} className="desktop-nav">
             {[
               { name: 'Home', id: 'home' },
@@ -437,11 +572,10 @@ const Portfolio = () => {
                 style={{
                   background: 'none',
                   border: 'none',
-                  color: activeSection === item.id ? '#06b6d4' : '#e8e8e8',
+                  color: activeSection === item.id ? '#e91e63' : '#b0b0b0',
                   cursor: 'pointer',
-                  fontSize: '0.95rem',
-                  fontWeight: '500',
-                  padding: '0.5rem 0'
+                  fontSize: '0.9rem',
+                  fontWeight: '500'
                 }}
               >
                 {item.name}
@@ -449,7 +583,6 @@ const Portfolio = () => {
             ))}
           </div>
 
-          {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="mobile-menu-btn"
@@ -457,20 +590,19 @@ const Portfolio = () => {
               display: 'none',
               background: 'none',
               border: 'none',
-              color: '#06b6d4',
+              color: '#e91e63',
               cursor: 'pointer'
             }}
           >
-            {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+            {mobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
           </button>
         </div>
 
-        {/* Mobile Menu */}
         {mobileMenuOpen && (
           <div style={{
-            background: '#1a1f2e',
+            background: '#242428',
             padding: '1rem 0',
-            borderTop: '1px solid #252b3b'
+            borderTop: '1px solid rgba(255, 255, 255, 0.1)'
           }}>
             {['Home', 'About', 'Skills', 'Projects', 'Blogs', 'Contact'].map((item) => (
               <button
@@ -482,11 +614,11 @@ const Portfolio = () => {
                   padding: '1rem 2rem',
                   background: 'none',
                   border: 'none',
-                  color: '#e8e8e8',
+                  color: '#b0b0b0',
                   cursor: 'pointer',
                   textAlign: 'left',
-                  fontSize: '1rem',
-                  borderBottom: '1px solid #252b3b'
+                  fontSize: '0.95rem',
+                  borderBottom: '1px solid rgba(255, 255, 255, 0.05)'
                 }}
               >
                 {item}
@@ -502,7 +634,7 @@ const Portfolio = () => {
         display: 'flex',
         alignItems: 'center',
         padding: '8rem 2rem 4rem 2rem',
-        background: 'linear-gradient(135deg, #0f1419 0%, #1a1f2e 100%)'
+        background: '#1a1a1d'
       }}>
         <div style={{
           maxWidth: '1400px',
@@ -511,126 +643,86 @@ const Portfolio = () => {
         }}>
           <div style={{
             display: 'grid',
-            gridTemplateColumns: window.innerWidth > 968 ? '1fr 1fr' : '1fr',
-            gap: '3rem',
+            gridTemplateColumns: window.innerWidth > 968 ? '1.3fr 1fr' : '1fr',
+            gap: '4rem',
             alignItems: 'center'
           }}>
-            {/* Left Side - Text Content */}
             <div>
               <p style={{
-                fontSize: '1.1rem',
-                color: '#06b6d4',
-                marginBottom: '1rem',
-                fontFamily: '"JetBrains Mono", monospace'
+                fontSize: '0.9rem',
+                color: '#e91e63',
+                marginBottom: '1.5rem',
+                letterSpacing: '0.5px',
+                fontWeight: '600'
               }}>
-                Hello!
+                COMPUTER ENGINEERING STUDENT
               </p>
               <h1 style={{
-                fontSize: 'clamp(2rem, 6vw, 4rem)',
-                fontWeight: '800',
-                lineHeight: '1.2',
-                marginBottom: '1.5rem'
+                fontSize: 'clamp(2.5rem, 6vw, 4.2rem)',
+                fontWeight: '700',
+                lineHeight: '1.15',
+                marginBottom: '1.5rem',
+                color: '#ffffff',
+                letterSpacing: '-0.02em'
               }}>
-                I'm <span style={{ color: '#06b6d4' }}>Tharushika</span>,<br />
-                Full-Stack Developer
+                Hi, I'm <span className="accent-text">Tharushika</span>
+                <br />
+                <span style={{ fontSize: 'clamp(1.8rem, 4vw, 3rem)', color: '#b0b0b0' }}>Full-Stack Developer</span>
               </h1>
               <p style={{
-                fontSize: 'clamp(1rem, 3vw, 1.2rem)',
-                color: '#a0a0a0',
-                lineHeight: '1.8',
-                marginBottom: '2rem'
+                fontSize: 'clamp(1rem, 2.5vw, 1.1rem)',
+                color: '#888',
+                lineHeight: '1.7',
+                marginBottom: '2.5rem',
+                maxWidth: '600px'
               }}>
-                Computer Engineering student specializing in <span style={{ color: '#06b6d4', fontWeight: '600' }}>Software Engineering</span>, DevOps, Cloud Computing, and Machine Learning. Building innovative solutions to solve real-world problems.
+                Specializing in Software Engineering, Cloud Computing, and Machine Learning. Building innovative solutions to solve real-world problems.
               </p>
               <div style={{
                 display: 'flex',
                 gap: '1rem',
                 flexWrap: 'wrap',
                 alignItems: 'center',
-                marginBottom: '1.5rem'
+                marginBottom: '2.5rem'
               }}>
                 <button onClick={() => scrollToSection('contact')} className="btn-primary">
-                  LET'S TALK 👋
+                  Get In Touch
+                  <ArrowRight size={16} />
+                </button>
+                <button onClick={() => scrollToSection('projects')} className="btn-outline">
+                  View Projects
                 </button>
               </div>
-              <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-                <a href="https://github.com/tharushika0418" target="_blank" rel="noopener noreferrer" style={{
-                  width: '45px',
-                  height: '45px',
-                  borderRadius: '8px',
-                  border: '1px solid #252b3b',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  color: '#06b6d4',
-                  transition: 'all 0.3s ease',
-                  textDecoration: 'none'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = '#06b6d4';
-                  e.currentTarget.style.background = 'rgba(6, 182, 212, 0.1)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = '#252b3b';
-                  e.currentTarget.style.background = 'transparent';
+              <div>
+                <p style={{
+                  fontSize: '0.85rem',
+                  color: '#666',
+                  marginBottom: '1rem',
+                  fontWeight: '500'
                 }}>
-                  <Github size={20} />
-                </a>
-                <a href="https://linkedin.com/in/tharushika-prasadinie" target="_blank" rel="noopener noreferrer" style={{
-                  width: '45px',
-                  height: '45px',
-                  borderRadius: '8px',
-                  border: '1px solid #252b3b',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  color: '#06b6d4',
-                  transition: 'all 0.3s ease',
-                  textDecoration: 'none'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = '#06b6d4';
-                  e.currentTarget.style.background = 'rgba(6, 182, 212, 0.1)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = '#252b3b';
-                  e.currentTarget.style.background = 'transparent';
-                }}>
-                  <Linkedin size={20} />
-                </a>
-                <a href="mailto:e20300@eng.pdn.ac.lk" style={{
-                  width: '45px',
-                  height: '45px',
-                  borderRadius: '8px',
-                  border: '1px solid #252b3b',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  color: '#06b6d4',
-                  transition: 'all 0.3s ease',
-                  textDecoration: 'none'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = '#06b6d4';
-                  e.currentTarget.style.background = 'rgba(6, 182, 212, 0.1)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = '#252b3b';
-                  e.currentTarget.style.background = 'transparent';
-                }}>
-                  <Mail size={20} />
-                </a>
+                  Connect with me
+                </p>
+                <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
+                  <a href="https://github.com/tharushika0418" target="_blank" rel="noopener noreferrer" className="social-icon">
+                    <Github size={18} />
+                  </a>
+                  <a href="www.linkedin.com/in/tharushika-prasadinie-29a13a261" target="_blank" rel="noopener noreferrer" className="social-icon">
+                    <Linkedin size={18} />
+                  </a>
+                  <a href="mailto:e20300@eng.pdn.ac.lk" className="social-icon">
+                    <Mail size={18} />
+                  </a>
+                </div>
               </div>
             </div>
 
-            {/* Right Side - Profile Image */}
             <div style={{
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center'
             }}>
               <img 
-                src="/images/profile.jpeg"
+                src={`${process.env.PUBLIC_URL}/images/profile.jpeg`}
                 alt="Tharushika Profile"
                 className="profile-image"
               />
@@ -639,81 +731,68 @@ const Portfolio = () => {
         </div>
       </section>
 
-      {/* About Me Section */}
+      {/* About Section */}
       <section id="about" style={{
         padding: '6rem 2rem',
-        background: '#0f1419'
+        background: '#202023'
       }}>
         <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
-          <h2 style={{
-            fontSize: 'clamp(2rem, 5vw, 3.5rem)',
-            fontWeight: '800',
-            marginBottom: '1rem',
-            color: '#06b6d4'
-          }}>
-            About Me
-          </h2>
-          <div style={{
-            width: '80px',
-            height: '4px',
-            background: '#06b6d4',
-            marginBottom: '3rem'
-          }} />
+          <h2 className="section-title">About Me</h2>
+          <p className="section-subtitle">
+            Education, experience, and achievements
+          </p>
 
           <div style={{
             display: 'grid',
             gridTemplateColumns: window.innerWidth > 968 ? 'repeat(2, 1fr)' : '1fr',
-            gap: '3rem'
+            gap: '2.5rem'
           }}>
             <div>
-              <h3 style={{ fontSize: '1.6rem', marginBottom: '1.5rem', color: '#e8e8e8' }}>
-                Final-year Computer Engineering Student
+              <h3 style={{ fontSize: '1.6rem', marginBottom: '1.5rem', color: '#ffffff', fontWeight: '600' }}>
+                Computer Engineering Student
               </h3>
-              <p style={{ fontSize: '1.05rem', color: '#a0a0a0', lineHeight: '1.8', marginBottom: '1.5rem' }}>
+              <p style={{ fontSize: '1rem', color: '#b0b0b0', lineHeight: '1.8', marginBottom: '1.5rem' }}>
                 Specializing in Software Engineering, DevOps, Cloud Computing, Machine Learning, and Networking. Experienced in full-stack development, database management, and software deployment.
               </p>
-              <p style={{ fontSize: '1.05rem', color: '#a0a0a0', lineHeight: '1.8' }}>
+              <p style={{ fontSize: '1rem', color: '#b0b0b0', lineHeight: '1.8' }}>
                 Passionate about building scalable applications and optimizing processes. Skilled in designing innovative solutions to enhance efficiency and user experience.
               </p>
             </div>
 
             <div style={{
-              background: '#1a1f2e',
-              padding: '2rem',
-              borderRadius: '12px',
-              border: '1px solid #252b3b'
+              display: 'grid',
+              gap: '1.25rem'
             }}>
-              <div style={{ marginBottom: '2rem' }}>
-                <h4 style={{ fontSize: '1.2rem', color: '#06b6d4', marginBottom: '0.5rem' }}>Education</h4>
-                <p style={{ color: '#e8e8e8', fontSize: '1.05rem', fontWeight: '600' }}>BSc Eng Hons - Computer Engineering</p>
-                <p style={{ color: '#a0a0a0' }}>University of Peradeniya</p>
-                <p style={{ color: '#06b6d4', fontFamily: '"JetBrains Mono", monospace', marginTop: '0.5rem' }}>GPA: 3.56/4.0</p>
+              <div className="info-card">
+                <h4 style={{ fontSize: '1rem', color: '#e91e63', marginBottom: '0.5rem', fontWeight: '600' }}>Education</h4>
+                <p style={{ color: '#ffffff', fontSize: '1rem', fontWeight: '600' }}>BSc Eng Hons - Computer Engineering</p>
+                <p style={{ color: '#888', fontSize: '0.9rem' }}>University of Peradeniya</p>
+                <p style={{ color: '#e91e63', marginTop: '0.5rem', fontWeight: '600' }}>GPA: 3.56/4.0</p>
               </div>
 
-              <div style={{ marginBottom: '2rem' }}>
-                <h4 style={{ fontSize: '1.2rem', color: '#06b6d4', marginBottom: '0.5rem' }}>Experience</h4>
-                <p style={{ color: '#e8e8e8', fontSize: '1.05rem', fontWeight: '600' }}>Undergraduate Teaching Assistant</p>
-                <p style={{ color: '#a0a0a0' }}>Department of Computer Engineering</p>
-                <p style={{ color: '#a0a0a0', marginTop: '0.5rem' }}>Feb 2023 - Aug 2025</p>
+              <div className="info-card">
+                <h4 style={{ fontSize: '1rem', color: '#e91e63', marginBottom: '0.5rem', fontWeight: '600' }}>Experience</h4>
+                <p style={{ color: '#ffffff', fontSize: '1rem', fontWeight: '600' }}>Undergraduate Teaching Assistant</p>
+                <p style={{ color: '#888', fontSize: '0.9rem' }}>Department of Computer Engineering</p>
+                <p style={{ color: '#888', marginTop: '0.5rem', fontSize: '0.85rem' }}>Feb 2023 - Aug 2025</p>
               </div>
 
-              <div>
-                <h4 style={{ fontSize: '1.2rem', color: '#06b6d4', marginBottom: '0.5rem' }}>Achievement</h4>
-                <p style={{ color: '#e8e8e8', fontSize: '1.05rem', fontWeight: '600' }}>Second Runner-up</p>
-                <p style={{ color: '#a0a0a0' }}>IEEE EMBS BioFusion AI/ML Medical Hackathon 2026</p>
+              <div className="info-card">
+                <h4 style={{ fontSize: '1rem', color: '#e91e63', marginBottom: '0.5rem', fontWeight: '600' }}>Achievement</h4>
+                <p style={{ color: '#ffffff', fontSize: '1rem', fontWeight: '600' }}>Second Runner-up</p>
+                <p style={{ color: '#888', fontSize: '0.9rem' }}>IEEE EMBS BioFusion AI/ML Medical Hackathon 2026</p>
               </div>
             </div>
           </div>
 
-          {/* Featured Section */}
-          <div style={{ marginTop: '4rem' }}>
+          <div style={{ marginTop: '5rem' }}>
             <h3 style={{
               fontSize: '1.8rem',
-              fontWeight: '700',
+              fontWeight: '600',
               marginBottom: '2rem',
-              color: '#e8e8e8'
+              color: '#ffffff'
             }}>
-              Featured
+              Featured Work
             </h3>
             <div className="featured-image-container">
               {featuredImages.map((image, idx) => (
@@ -731,7 +810,6 @@ const Portfolio = () => {
                 />
               ))}
               
-              {/* Image Indicators */}
               <div className="image-indicators">
                 {featuredImages.map((_, idx) => (
                   <div 
@@ -748,95 +826,44 @@ const Portfolio = () => {
       {/* Skills Section */}
       <section id="skills" style={{
         padding: '6rem 2rem',
-        background: 'linear-gradient(135deg, #1a1f2e 0%, #0f1419 100%)'
+        background: '#1a1a1d'
       }}>
         <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
-          <h2 style={{
-            fontSize: 'clamp(2rem, 5vw, 3.5rem)',
-            fontWeight: '800',
-            marginBottom: '1rem',
-            color: '#06b6d4'
-          }}>
-            Skills
-          </h2>
-          <div style={{
-            width: '80px',
-            height: '4px',
-            background: '#06b6d4',
-            marginBottom: '2rem'
-          }} />
-          <p style={{ fontSize: '1.1rem', color: '#a0a0a0', marginBottom: '3rem' }}>
-            Focusing on learning and adapting real world skills & exploring new technologies
+          <h2 className="section-title">Technical Skills</h2>
+          <p className="section-subtitle">
+            Technologies and tools I work with
           </p>
 
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(120px, 1fr))',
-            gap: '1.5rem',
-            marginBottom: '3rem'
+            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+            gap: '1.5rem'
           }}>
-            {[
-              { name: 'HTML', color: '#e34c26', bg: 'rgba(227, 76, 38, 0.1)' },
-              { name: 'CSS', color: '#264de4', bg: 'rgba(38, 77, 228, 0.1)' },
-              { name: 'JS', color: '#f0db4f', bg: 'rgba(240, 219, 79, 0.1)' },
-              { name: 'React', color: '#61dafb', bg: 'rgba(97, 218, 251, 0.1)' },
-              { name: 'Node', color: '#68a063', bg: 'rgba(104, 160, 99, 0.1)' },
-              { name: 'Python', color: '#3776ab', bg: 'rgba(55, 118, 171, 0.1)' },
-              { name: 'Java', color: '#f89820', bg: 'rgba(248, 152, 32, 0.1)' },
-              { name: 'SQL', color: '#00758f', bg: 'rgba(0, 117, 143, 0.1)' }
-            ].map((skill, idx) => (
-              <div key={idx} className="skill-badge" style={{
-                background: skill.bg,
-                border: `2px solid ${skill.color}`,
-                color: skill.color
-              }}>
-                {skill.name}
-              </div>
-            ))}
-          </div>
-
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-            gap: '2rem'
-          }}>
-            {[
-              { title: 'Frontend Development', icon: <Globe size={32} />, skills: ['React', 'HTML', 'CSS', 'JavaScript', 'Bootstrap'] },
-              { title: 'Backend Development', icon: <Server size={32} />, skills: ['Node.js', 'Express', 'Spring Boot', 'Flask', 'REST APIs'] },
-              { title: 'Database Management', icon: <Database size={32} />, skills: ['MySQL', 'MongoDB', 'PostgreSQL', 'Redis'] },
-              { title: 'Cloud & DevOps', icon: <Code2 size={32} />, skills: ['AWS', 'Docker', 'Git', 'CI/CD', 'Linux'] }
-            ].map((category, idx) => (
-              <div key={idx} style={{
-                background: '#1a1f2e',
-                padding: '2rem',
-                borderRadius: '12px',
-                border: '1px solid #252b3b',
-                transition: 'all 0.3s ease'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = '#06b6d4';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = '#252b3b';
-              }}>
-                <div style={{ color: '#06b6d4', marginBottom: '1rem' }}>
-                  {category.icon}
-                </div>
-                <h3 style={{ fontSize: '1.2rem', marginBottom: '1rem', color: '#e8e8e8' }}>
-                  {category.title}
+            {skills.map((category, idx) => (
+              <div key={idx} className="skill-card">
+                <h3 style={{ 
+                  fontSize: '1.1rem', 
+                  marginBottom: '1.25rem', 
+                  color: '#ffffff',
+                  fontWeight: '600',
+                  textAlign: 'center'
+                }}>
+                  {category.category}
                 </h3>
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
-                  {category.skills.map((skill, i) => (
-                    <span key={i} style={{
-                      padding: '0.4rem 0.9rem',
-                      background: '#0f1419',
-                      borderRadius: '6px',
-                      fontSize: '0.85rem',
-                      color: '#a0a0a0',
-                      border: '1px solid #252b3b'
-                    }}>
-                      {skill}
-                    </span>
+                <div style={{ 
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(auto-fit, minmax(75px, 1fr))',
+                  gap: '0.75rem'
+                }}>
+                  {category.items.map((skill, i) => (
+                    <div key={i} className="skill-icon-item">
+                      <img 
+                        src={skill.icon} 
+                        alt={skill.name}
+                        className="skill-icon-img"
+                      />
+                      <span className="skill-icon-name">{skill.name}</span>
+                    </div>
                   ))}
                 </div>
               </div>
@@ -848,27 +875,17 @@ const Portfolio = () => {
       {/* Projects Section */}
       <section id="projects" style={{
         padding: '6rem 2rem',
-        background: '#0f1419'
+        background: '#202023'
       }}>
         <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
-          <h2 style={{
-            fontSize: 'clamp(2rem, 5vw, 3.5rem)',
-            fontWeight: '800',
-            marginBottom: '1rem',
-            color: '#06b6d4'
-          }}>
-            Projects
-          </h2>
-          <div style={{
-            width: '80px',
-            height: '4px',
-            background: '#06b6d4',
-            marginBottom: '3rem'
-          }} />
+          <h2 className="section-title">Projects</h2>
+          <p className="section-subtitle">
+            Selected work and case studies
+          </p>
 
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
             gap: '2rem'
           }}>
             {projects.map((project, idx) => {
@@ -876,12 +893,7 @@ const Portfolio = () => {
               const hasMultipleImages = project.images && project.images.length > 1;
               
               return (
-                <div key={idx} className="project-card" style={{
-                  padding: '2rem',
-                  borderRadius: '12px',
-                  position: 'relative'
-                }}>
-                  {/* Auto-rotating Image Carousel */}
+                <div key={idx} className="project-card">
                   <div className="project-image-container">
                     {project.images && project.images.map((image, imgIdx) => (
                       <img 
@@ -898,7 +910,6 @@ const Portfolio = () => {
                       />
                     ))}
                     
-                    {/* Image Indicators */}
                     {hasMultipleImages && (
                       <div className="image-indicators">
                         {project.images.map((_, imgIdx) => (
@@ -911,118 +922,106 @@ const Portfolio = () => {
                     )}
                   </div>
                   
-                  <div style={{
-                    position: 'absolute',
-                    top: '2rem',
-                    right: '2rem'
-                  }}>
-                    <ExternalLink size={20} color="#06b6d4" />
-                  </div>
-                  
-                  <div style={{
-                    display: 'inline-block',
-                    padding: '0.4rem 0.8rem',
-                    background: 'rgba(6, 182, 212, 0.1)',
-                    borderRadius: '6px',
-                    fontSize: '0.75rem',
-                    color: '#06b6d4',
-                    marginBottom: '1rem',
-                    fontFamily: '"JetBrains Mono", monospace',
-                    border: '1px solid rgba(6, 182, 212, 0.3)'
-                  }}>
-                    {project.category}
-                  </div>
-                  
-                  <h3 style={{
-                    fontSize: '1.4rem',
-                    fontWeight: '700',
-                    marginBottom: '0.5rem',
-                    color: '#e8e8e8'
-                  }}>
-                    {project.title}
-                  </h3>
-                  
-                  <p style={{
-                    fontSize: '1rem',
-                    color: '#06b6d4',
-                    marginBottom: '1rem',
-                    fontWeight: '500'
-                  }}>
-                    {project.subtitle}
-                  </p>
-                  
-                  <p style={{
-                    color: '#a0a0a0',
-                    lineHeight: '1.6',
-                    marginBottom: '1.5rem',
-                    fontSize: '0.9rem'
-                  }}>
-                    {project.description}
-                  </p>
-                  
-                  <div style={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                    flexWrap: 'wrap',
-                    gap: '1rem'
-                  }}>
-                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
-                      {project.tech.map((tech, i) => (
-                        <span key={i} style={{
-                          padding: '0.3rem 0.7rem',
-                          background: '#0f1419',
-                          borderRadius: '6px',
-                          fontSize: '0.75rem',
-                          color: '#a0a0a0',
-                          border: '1px solid #252b3b'
-                        }}>
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                    <span style={{
-                      color: '#606060',
-                      fontSize: '0.8rem',
-                      fontFamily: '"JetBrains Mono", monospace'
+                  <div style={{ padding: '1.75rem' }}>
+                    <div style={{
+                      display: 'inline-block',
+                      padding: '0.35rem 0.85rem',
+                      background: 'rgba(233, 30, 99, 0.15)',
+                      borderRadius: 4,
+                      fontSize: '0.75rem',
+                      color: '#e91e63',
+                      marginBottom: '1rem',
+                      fontWeight: '600'
                     }}>
-                      {project.year}
-                    </span>
+                      {project.category}
+                    </div>
+                    
+                    <h3 style={{
+                      fontSize: '1.35rem',
+                      fontWeight: '600',
+                      marginBottom: '0.5rem',
+                      color: '#ffffff'
+                    }}>
+                      {project.title}
+                    </h3>
+                    
+                    <p style={{
+                      fontSize: '0.95rem',
+                      color: '#888',
+                      marginBottom: '1rem',
+                      fontWeight: '500'
+                    }}>
+                      {project.subtitle}
+                    </p>
+                    
+                    <p style={{
+                      color: '#b0b0b0',
+                      lineHeight: '1.6',
+                      marginBottom: '1.5rem',
+                      fontSize: '0.9rem'
+                    }}>
+                      {project.description}
+                    </p>
+                    
+                    <div style={{
+                      display: 'flex',
+                      justifyContent: 'space-between',
+                      alignItems: 'center',
+                      flexWrap: 'wrap',
+                      gap: '1rem',
+                      paddingTop: '1rem',
+                      borderTop: '1px solid rgba(255, 255, 255, 0.1)'
+                    }}>
+                      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+                        {project.tech.map((tech, i) => (
+                          <span key={i} style={{
+                            padding: '0.3rem 0.7rem',
+                            background: 'rgba(255, 255, 255, 0.05)',
+                            borderRadius: 4,
+                            fontSize: '0.75rem',
+                            color: '#b0b0b0',
+                            fontWeight: '500'
+                          }}>
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                      <span style={{
+                        color: '#666',
+                        fontSize: '0.8rem'
+                      }}>
+                        {project.year}
+                      </span>
+                    </div>
                   </div>
                 </div>
               );
             })}
           </div>
 
-          {/* Publication */}
-          <div style={{ marginTop: '4rem' }}>
+          <div style={{ marginTop: '5rem' }}>
             <h3 style={{
               fontSize: '1.8rem',
-              fontWeight: '700',
-              marginBottom: '2rem',
-              color: '#e8e8e8'
+              fontWeight: '600',
+              marginBottom: '1.5rem',
+              color: '#ffffff'
             }}>
               Publications
             </h3>
-            <div style={{
-              background: '#1a1f2e',
-              padding: '2rem',
-              borderRadius: '12px',
-              border: '1px solid #252b3b'
-            }}>
+            <div className="info-card">
               <h4 style={{
-                fontSize: '1.3rem',
+                fontSize: '1.2rem',
                 fontWeight: '600',
                 marginBottom: '1rem',
                 lineHeight: '1.5',
-                color: '#e8e8e8'
+                color: '#ffffff'
               }}>
                 Evaluating Topology Preservation in Dimensionality Reduction Methods for Metagenomic Data
               </h4>
-              <p style={{ color: '#a0a0a0', marginBottom: '0.5rem', fontSize: '0.95rem' }}>
+              <p style={{ color: '#888', marginBottom: '0.75rem', fontSize: '0.9rem' }}>
                 Tharushika Prasadinie, C. Jananga, P. Malshan, D. Herath, R. Vidanaarachchi, V. Mallawaarachchi
               </p>
-              <p style={{ color: '#06b6d4', fontSize: '0.85rem', fontFamily: '"JetBrains Mono", monospace' }}>
+              <p style={{ color: '#e91e63', fontSize: '0.85rem', fontWeight: '500' }}>
                 4th International Conference on Image Processing and Robotics (ICIPRob 2026) • Under Review
               </p>
             </div>
@@ -1033,63 +1032,59 @@ const Portfolio = () => {
       {/* Blogs Section */}
       <section id="blogs" style={{
         padding: '6rem 2rem',
-        background: 'linear-gradient(135deg, #1a1f2e 0%, #0f1419 100%)'
+        background: '#1a1a1d'
       }}>
         <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
-          <h2 style={{
-            fontSize: 'clamp(2rem, 5vw, 3.5rem)',
-            fontWeight: '800',
-            marginBottom: '1rem',
-            color: '#06b6d4'
-          }}>
-            Blogs
-          </h2>
-          <div style={{
-            width: '80px',
-            height: '4px',
-            background: '#06b6d4',
-            marginBottom: '2rem'
-          }} />
-          <p style={{ fontSize: '1.1rem', color: '#a0a0a0', marginBottom: '3rem' }}>
-            My thoughts on technology and business
+          <h2 className="section-title">Blog</h2>
+          <p className="section-subtitle">
+            Insights on technology and development
           </p>
 
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
             gap: '2rem'
           }}>
             {blogs.map((blog, idx) => (
-              <div key={idx} className="blog-card" style={{
-                padding: '2rem',
-                borderRadius: '12px'
-              }}>
+              <div key={idx} className="blog-card" style={{ padding: '1.75rem' }}>
                 <div style={{
                   width: '100%',
                   height: '180px',
-                  background: 'linear-gradient(135deg, rgba(6, 182, 212, 0.2), rgba(6, 182, 212, 0.05))',
-                  borderRadius: '8px',
+                  background: 'linear-gradient(135deg, rgba(233, 30, 99, 0.15) 0%, rgba(233, 30, 99, 0.05) 100%)',
+                  borderRadius: 6,
                   marginBottom: '1.5rem',
                   display: 'flex',
                   alignItems: 'center',
-                  justifyContent: 'center',
-                  border: '1px solid #252b3b'
+                  justifyContent: 'center'
                 }}>
-                  <Code2 size={50} color="#06b6d4" opacity={0.3} />
+                  <ExternalLink size={40} color="#e91e63" opacity={0.3} />
+                </div>
+                
+                <div style={{
+                  display: 'inline-block',
+                  padding: '0.35rem 0.85rem',
+                  background: 'rgba(233, 30, 99, 0.15)',
+                  borderRadius: 4,
+                  fontSize: '0.75rem',
+                  color: '#e91e63',
+                  marginBottom: '1rem',
+                  fontWeight: '600'
+                }}>
+                  {blog.category}
                 </div>
                 
                 <h3 style={{
-                  fontSize: '1.3rem',
+                  fontSize: '1.25rem',
                   fontWeight: '600',
                   marginBottom: '1rem',
-                  color: '#e8e8e8',
+                  color: '#ffffff',
                   lineHeight: '1.4'
                 }}>
                   {blog.title}
                 </h3>
                 
                 <p style={{
-                  color: '#a0a0a0',
+                  color: '#b0b0b0',
                   lineHeight: '1.6',
                   marginBottom: '1.5rem',
                   fontSize: '0.9rem'
@@ -1102,26 +1097,19 @@ const Portfolio = () => {
                   justifyContent: 'space-between',
                   alignItems: 'center',
                   paddingTop: '1rem',
-                  borderTop: '1px solid #252b3b',
-                  flexWrap: 'wrap',
-                  gap: '0.5rem'
+                  borderTop: '1px solid rgba(255, 255, 255, 0.1)'
                 }}>
-                  <div>
-                    <p style={{ color: '#606060', fontSize: '0.8rem' }}>
-                      {blog.category}
-                    </p>
-                    <p style={{ color: '#606060', fontSize: '0.8rem', fontFamily: '"JetBrains Mono", monospace' }}>
-                      {blog.date} • {blog.readTime}
-                    </p>
-                  </div>
+                  <p style={{ color: '#666', fontSize: '0.8rem' }}>
+                    {blog.date} • {blog.readTime}
+                  </p>
                 </div>
               </div>
             ))}
           </div>
 
-          <div style={{ textAlign: 'center', marginTop: '3rem' }}>
+          <div style={{ textAlign: 'center', marginTop: '2.5rem' }}>
             <button className="btn-outline">
-              View All Blogs
+              View All Posts
             </button>
           </div>
         </div>
@@ -1130,110 +1118,60 @@ const Portfolio = () => {
       {/* Contact Section */}
       <section id="contact" style={{
         padding: '6rem 2rem',
-        background: '#0f1419'
+        background: '#202023'
       }}>
-        <div style={{ maxWidth: '900px', margin: '0 auto' }}>
-          <h2 style={{
-            fontSize: 'clamp(2rem, 5vw, 3.5rem)',
-            fontWeight: '800',
-            marginBottom: '1rem',
-            color: '#06b6d4'
-          }}>
+        <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
+          <h2 className="section-title" style={{ textAlign: 'center' }}>
             Get In Touch
           </h2>
-          <div style={{
-            width: '80px',
-            height: '4px',
-            background: '#06b6d4',
-            marginBottom: '2rem'
-          }} />
           <p style={{
-            fontSize: '1.1rem',
-            color: '#a0a0a0',
-            marginBottom: '3rem',
-            lineHeight: '1.7'
+            fontSize: '1.05rem',
+            color: '#888',
+            marginBottom: '3.5rem',
+            lineHeight: '1.7',
+            textAlign: 'center',
+            maxWidth: '650px',
+            margin: '0 auto 3.5rem'
           }}>
-            I'm currently looking for new opportunities and collaborations. Whether you have a question or just want to say hi, feel free to reach out!
+            I'm currently looking for new opportunities and collaborations. Feel free to reach out if you'd like to connect.
           </p>
 
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-            gap: '2rem',
-            marginBottom: '3rem'
+            gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
+            gap: '1.5rem',
+            marginBottom: '2.5rem'
           }}>
-            <div style={{
-              background: '#1a1f2e',
-              padding: '2rem',
-              borderRadius: '12px',
-              border: '1px solid #252b3b',
-              textAlign: 'center',
-              transition: 'all 0.3s ease'
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.borderColor = '#06b6d4';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.borderColor = '#252b3b';
-            }}>
-              <Mail size={32} color="#06b6d4" style={{ marginBottom: '1rem' }} />
-              <h4 style={{ fontSize: '1.1rem', marginBottom: '0.5rem', fontWeight: '600', color: '#e8e8e8' }}>Email</h4>
+            <div className="info-card" style={{ textAlign: 'center' }}>
+              <Mail size={28} color="#e91e63" style={{ marginBottom: '1rem' }} />
+              <h4 style={{ fontSize: '1rem', marginBottom: '0.5rem', fontWeight: '600', color: '#ffffff' }}>Email</h4>
               <a href="mailto:e20300@eng.pdn.ac.lk" style={{
-                color: '#06b6d4',
+                color: '#888',
                 textDecoration: 'none',
                 fontSize: '0.9rem',
-                fontFamily: '"JetBrains Mono", monospace',
                 wordBreak: 'break-all'
               }}>
                 e20300@eng.pdn.ac.lk
               </a>
             </div>
 
-            <div style={{
-              background: '#1a1f2e',
-              padding: '2rem',
-              borderRadius: '12px',
-              border: '1px solid #252b3b',
-              textAlign: 'center',
-              transition: 'all 0.3s ease'
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.borderColor = '#06b6d4';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.borderColor = '#252b3b';
-            }}>
-              <Phone size={32} color="#06b6d4" style={{ marginBottom: '1rem' }} />
-              <h4 style={{ fontSize: '1.1rem', marginBottom: '0.5rem', fontWeight: '600', color: '#e8e8e8' }}>Phone</h4>
-              <p style={{ color: '#a0a0a0', fontSize: '0.9rem', fontFamily: '"JetBrains Mono", monospace' }}>+94 703 703 524</p>
+            <div className="info-card" style={{ textAlign: 'center' }}>
+              <Phone size={28} color="#e91e63" style={{ marginBottom: '1rem' }} />
+              <h4 style={{ fontSize: '1rem', marginBottom: '0.5rem', fontWeight: '600', color: '#ffffff' }}>Phone</h4>
+              <p style={{ color: '#888', fontSize: '0.9rem' }}>+94 703 703 524</p>
             </div>
 
-            <div style={{
-              background: '#1a1f2e',
-              padding: '2rem',
-              borderRadius: '12px',
-              border: '1px solid #252b3b',
-              textAlign: 'center',
-              transition: 'all 0.3s ease'
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.borderColor = '#06b6d4';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.borderColor = '#252b3b';
-            }}>
-              <MapPin size={32} color="#06b6d4" style={{ marginBottom: '1rem' }} />
-              <h4 style={{ fontSize: '1.1rem', marginBottom: '0.5rem', fontWeight: '600', color: '#e8e8e8' }}>Location</h4>
-              <p style={{ color: '#a0a0a0', fontSize: '0.9rem' }}>Peradeniya, Sri Lanka</p>
+            <div className="info-card" style={{ textAlign: 'center' }}>
+              <MapPin size={28} color="#e91e63" style={{ marginBottom: '1rem' }} />
+              <h4 style={{ fontSize: '1rem', marginBottom: '0.5rem', fontWeight: '600', color: '#ffffff' }}>Location</h4>
+              <p style={{ color: '#888', fontSize: '0.9rem' }}>Peradeniya, Sri Lanka</p>
             </div>
           </div>
 
           <div style={{ textAlign: 'center' }}>
-            <a href="mailto:e20300@eng.pdn.ac.lk" className="btn-primary" style={{
-              fontSize: '1rem',
-              padding: '1rem 2rem'
-            }}>
-              Send Message ✉️
+            <a href="mailto:e20300@eng.pdn.ac.lk" className="btn-primary">
+              Send Message
+              <Mail size={16} />
             </a>
           </div>
         </div>
@@ -1242,12 +1180,12 @@ const Portfolio = () => {
       {/* Footer */}
       <footer style={{
         padding: '2rem',
-        borderTop: '1px solid #252b3b',
-        background: '#1a1f2e',
+        borderTop: '1px solid rgba(255, 255, 255, 0.1)',
+        background: '#1a1a1d',
         textAlign: 'center'
       }}>
-        <p style={{ color: '#a0a0a0', fontSize: '0.9rem', fontFamily: '"JetBrains Mono", monospace' }}>
-          © 2026 Tharushika Prasadinie. Designed & Built with React
+        <p style={{ color: '#666', fontSize: '0.9rem' }}>
+          © 2026 Tharushika Prasadinie. All rights reserved.
         </p>
       </footer>
     </div>
