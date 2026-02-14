@@ -12,7 +12,7 @@ const Portfolio = () => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
       
-      const sections = ['home', 'about', 'skills', 'projects', 'blogs', 'contact'];
+      const sections = ['home', 'about', 'skills', 'projects', 'certifications', 'contact'];
       const current = sections.find(section => {
         const element = document.getElementById(section);
         if (element) {
@@ -106,17 +106,26 @@ const Portfolio = () => {
       ]
     },
     {
+      title: "FoundIt",
+      subtitle: "AI-Powered Lost & Found System",
+      description: "Smart web application using SentenceBERT and OpenAI CLIP for intelligent similarity matching to reconnect lost items with owners through semantic text and multimodal image analysis.",
+      tech: ["Python", "Flask", "MongoDB", "AI/ML"],
+      category: "Machine Learning",
+      year: "2024",
+      images: [
+        `${process.env.PUBLIC_URL}/images/foundit-1.jpg`,
+        `${process.env.PUBLIC_URL}/images/foundit-2.jpg`,
+        `${process.env.PUBLIC_URL}/images/foundit-3.jpg`
+      ]
+    },
+    {
       title: "TourMate",
       subtitle: "Smart Travel Companion",
       description: "Full-stack travel planning application with route optimization, real-time data integration, and downloadable PDF itineraries.",
       tech: ["React", "Spring Boot", "MySQL"],
       category: "Web Development",
       year: "2024",
-      images: [
-        "/images/tourmate-1.jpg",
-        "/images/tourmate-2.jpg",
-        "/images/tourmate-3.jpg"
-      ]
+      video: `${process.env.PUBLIC_URL}/videos/vescueye-demo.mp4`
     },
     {
       title: "POSync",
@@ -130,33 +139,6 @@ const Portfolio = () => {
         "/images/posync-2.jpg",
         "/images/posync-3.jpg"
       ]
-    }
-  ];
-
-  const blogs = [
-    {
-      title: "What does it take to become a web developer?",
-      excerpt: "Web development encompasses a variety of tasks and processes involved in creating websites for the internet, from front-end design to back-end architecture.",
-      author: "Tharushika",
-      date: "10 Oct 2023",
-      readTime: "3 Min",
-      category: "Web Development"
-    },
-    {
-      title: "Building Scalable IoT Applications with AWS",
-      excerpt: "Learn how to leverage AWS IoT Core and Lambda functions to create real-time monitoring systems that can handle thousands of devices efficiently.",
-      author: "Tharushika",
-      date: "15 Nov 2024",
-      readTime: "5 Min",
-      category: "Cloud & IoT"
-    },
-    {
-      title: "Graph Neural Networks in Bioinformatics",
-      excerpt: "Exploring the application of Graph Neural Networks for metagenomics data analysis and how they outperform traditional clustering methods.",
-      author: "Tharushika",
-      date: "20 Jan 2025",
-      readTime: "7 Min",
-      category: "Machine Learning"
     }
   ];
 
@@ -221,6 +203,21 @@ const Portfolio = () => {
     }
   ];
 
+  const certifications = [
+    {
+      title: "Comprehensive Java Master Developer Professional Level Certificate",
+      issuer: "Institute of Java and Software Engineering (IJSE)",
+      date: "2023-2024",
+      credentialId: ""
+    },
+    {
+      title: "Implementing and Administering Network Solutions (Aligned with CCNA)",
+      issuer: "Vibernets Academy",
+      date: "2024",
+      credentialId: ""
+    }
+  ];
+
   return (
     <div style={{
       minHeight: '100vh',
@@ -277,6 +274,17 @@ const Portfolio = () => {
           transition: opacity 0.5s ease-in-out;
         }
 
+        .project-video {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+
+        .project-video:hover {
+          transform: scale(1.02);
+          transition: transform 0.3s ease;
+        }
+
         .featured-image-container {
           position: relative;
           width: 100%;
@@ -319,20 +327,6 @@ const Portfolio = () => {
           background: #e91e63;
           width: 24px;
           border-radius: 3px;
-        }
-
-        .blog-card {
-          background: #242428;
-          border: 1px solid rgba(255, 255, 255, 0.1);
-          transition: all 0.3s ease;
-          cursor: pointer;
-          border-radius: 8px;
-        }
-
-        .blog-card:hover {
-          transform: translateY(-4px);
-          box-shadow: 0 8px 16px rgba(233, 30, 99, 0.15);
-          border-color: rgba(233, 30, 99, 0.3);
         }
 
         .nav-link {
@@ -406,9 +400,9 @@ const Portfolio = () => {
         .profile-image {
           width: 300px;
           height: 300px;
-          border-radius: 8px;
+          border-radius: 50%;
           object-fit: cover;
-          border: 2px solid rgba(233, 30, 99, 0.3);
+          border: 3px solid rgba(233, 30, 99, 0.3);
         }
 
         .skill-card {
@@ -562,7 +556,7 @@ const Portfolio = () => {
               { name: 'About', id: 'about' },
               { name: 'Skills', id: 'skills' },
               { name: 'Projects', id: 'projects' },
-              { name: 'Blogs', id: 'blogs' },
+              { name: 'Certifications', id: 'certifications' },
               { name: 'Contact', id: 'contact' }
             ].map((item) => (
               <button
@@ -604,7 +598,7 @@ const Portfolio = () => {
             padding: '1rem 0',
             borderTop: '1px solid rgba(255, 255, 255, 0.1)'
           }}>
-            {['Home', 'About', 'Skills', 'Projects', 'Blogs', 'Contact'].map((item) => (
+            {['Home', 'About', 'Skills', 'Projects', 'Certifications', 'Contact'].map((item) => (
               <button
                 key={item}
                 onClick={() => scrollToSection(item.toLowerCase())}
@@ -706,7 +700,7 @@ const Portfolio = () => {
                   <a href="https://github.com/tharushika0418" target="_blank" rel="noopener noreferrer" className="social-icon">
                     <Github size={18} />
                   </a>
-                  <a href="www.linkedin.com/in/tharushika-prasadinie-29a13a261" target="_blank" rel="noopener noreferrer" className="social-icon">
+                  <a href="https://www.linkedin.com/in/tharushika-prasadinie-29a13a261" target="_blank" rel="noopener noreferrer" className="social-icon">
                     <Linkedin size={18} />
                   </a>
                   <a href="mailto:e20300@eng.pdn.ac.lk" className="social-icon">
@@ -891,34 +885,50 @@ const Portfolio = () => {
             {projects.map((project, idx) => {
               const currentIndex = currentImageIndexes[idx] || 0;
               const hasMultipleImages = project.images && project.images.length > 1;
+              const hasVideo = project.video;
               
               return (
                 <div key={idx} className="project-card">
                   <div className="project-image-container">
-                    {project.images && project.images.map((image, imgIdx) => (
-                      <img 
-                        key={imgIdx}
-                        src={image}
-                        alt={`${project.title} - Image ${imgIdx + 1}`}
-                        className="project-image"
-                        style={{
-                          position: imgIdx === 0 ? 'relative' : 'absolute',
-                          top: 0,
-                          left: 0,
-                          opacity: imgIdx === currentIndex ? 1 : 0
-                        }}
-                      />
-                    ))}
-                    
-                    {hasMultipleImages && (
-                      <div className="image-indicators">
-                        {project.images.map((_, imgIdx) => (
-                          <div 
+                    {hasVideo ? (
+                      <video 
+                        className="project-video"
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                      >
+                        <source src={project.video} type="video/mp4" />
+                        Your browser does not support the video tag.
+                      </video>
+                    ) : (
+                      <>
+                        {project.images && project.images.map((image, imgIdx) => (
+                          <img 
                             key={imgIdx}
-                            className={`indicator-dot ${imgIdx === currentIndex ? 'active' : ''}`}
+                            src={image}
+                            alt={`${project.title} - Image ${imgIdx + 1}`}
+                            className="project-image"
+                            style={{
+                              position: imgIdx === 0 ? 'relative' : 'absolute',
+                              top: 0,
+                              left: 0,
+                              opacity: imgIdx === currentIndex ? 1 : 0
+                            }}
                           />
                         ))}
-                      </div>
+                        
+                        {hasMultipleImages && (
+                          <div className="image-indicators">
+                            {project.images.map((_, imgIdx) => (
+                              <div 
+                                key={imgIdx}
+                                className={`indicator-dot ${imgIdx === currentIndex ? 'active' : ''}`}
+                              />
+                            ))}
+                          </div>
+                        )}
+                      </>
                     )}
                   </div>
                   
@@ -1021,96 +1031,57 @@ const Portfolio = () => {
               <p style={{ color: '#888', marginBottom: '0.75rem', fontSize: '0.9rem' }}>
                 Tharushika Prasadinie, C. Jananga, P. Malshan, D. Herath, R. Vidanaarachchi, V. Mallawaarachchi
               </p>
-              <p style={{ color: '#e91e63', fontSize: '0.85rem', fontWeight: '500' }}>
+              <p style={{ color: '#e91e63', fontSize: '0.85rem', fontWeight: '500', marginBottom: '1.5rem' }}>
                 4th International Conference on Image Processing and Robotics (ICIPRob 2026) • Under Review
               </p>
+              <a 
+                href={`${process.env.PUBLIC_URL}/documents/research-paper.pdf`}
+                download
+                className="btn-outline"
+                style={{ display: 'inline-flex' }}
+              >
+                Download Paper (PDF)
+                <ExternalLink size={16} />
+              </a>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Blogs Section */}
-      <section id="blogs" style={{
+      {/* Certifications Section */}
+      <section id="certifications" style={{
         padding: '6rem 2rem',
         background: '#1a1a1d'
       }}>
         <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
-          <h2 className="section-title">Blog</h2>
+          <h2 className="section-title">Certifications</h2>
           <p className="section-subtitle">
-            Insights on technology and development
+            Professional certifications and achievements
           </p>
 
           <div style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
-            gap: '2rem'
+            gap: '1.5rem'
           }}>
-            {blogs.map((blog, idx) => (
-              <div key={idx} className="blog-card" style={{ padding: '1.75rem' }}>
-                <div style={{
-                  width: '100%',
-                  height: '180px',
-                  background: 'linear-gradient(135deg, rgba(233, 30, 99, 0.15) 0%, rgba(233, 30, 99, 0.05) 100%)',
-                  borderRadius: 6,
-                  marginBottom: '1.5rem',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center'
-                }}>
-                  <ExternalLink size={40} color="#e91e63" opacity={0.3} />
-                </div>
-                
-                <div style={{
-                  display: 'inline-block',
-                  padding: '0.35rem 0.85rem',
-                  background: 'rgba(233, 30, 99, 0.15)',
-                  borderRadius: 4,
-                  fontSize: '0.75rem',
-                  color: '#e91e63',
-                  marginBottom: '1rem',
-                  fontWeight: '600'
-                }}>
-                  {blog.category}
-                </div>
-                
-                <h3 style={{
-                  fontSize: '1.25rem',
+            {certifications.map((cert, idx) => (
+              <div key={idx} className="info-card">
+                <h4 style={{
+                  fontSize: '1.2rem',
                   fontWeight: '600',
-                  marginBottom: '1rem',
-                  color: '#ffffff',
-                  lineHeight: '1.4'
+                  marginBottom: '0.75rem',
+                  color: '#ffffff'
                 }}>
-                  {blog.title}
-                </h3>
-                
-                <p style={{
-                  color: '#b0b0b0',
-                  lineHeight: '1.6',
-                  marginBottom: '1.5rem',
-                  fontSize: '0.9rem'
-                }}>
-                  {blog.excerpt}
+                  {cert.title}
+                </h4>
+                <p style={{ color: '#e91e63', fontSize: '0.95rem', marginBottom: '0.5rem', fontWeight: '600' }}>
+                  {cert.issuer}
                 </p>
-                
-                <div style={{
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                  paddingTop: '1rem',
-                  borderTop: '1px solid rgba(255, 255, 255, 0.1)'
-                }}>
-                  <p style={{ color: '#666', fontSize: '0.8rem' }}>
-                    {blog.date} • {blog.readTime}
-                  </p>
-                </div>
+                <p style={{ color: '#888', fontSize: '0.85rem' }}>
+                  Issued: {cert.date}
+                </p>
               </div>
             ))}
-          </div>
-
-          <div style={{ textAlign: 'center', marginTop: '2.5rem' }}>
-            <button className="btn-outline">
-              View All Posts
-            </button>
           </div>
         </div>
       </section>
