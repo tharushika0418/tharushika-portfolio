@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/tharushika-portfolio/static/js/main.3e6fda3a.js",
+    "main.js": "/tharushika-portfolio/static/js/main.b6569a23.js",
     "index.html": "/tharushika-portfolio/index.html",
-    "main.3e6fda3a.js.map": "/tharushika-portfolio/static/js/main.3e6fda3a.js.map"
+    "main.b6569a23.js.map": "/tharushika-portfolio/static/js/main.b6569a23.js.map"
   },
   "entrypoints": [
-    "static/js/main.3e6fda3a.js"
+    "static/js/main.b6569a23.js"
   ]
 }
