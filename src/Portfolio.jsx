@@ -716,7 +716,7 @@ const Portfolio = () => {
               alignItems: 'center'
             }}>
               <img 
-                src={`${process.env.PUBLIC_URL}/images/profile.jpeg`}
+                src={`${process.env.PUBLIC_URL}/images/image.jpeg`}
                 alt="Tharushika Profile"
                 className="profile-image"
               />
